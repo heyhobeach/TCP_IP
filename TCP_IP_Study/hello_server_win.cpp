@@ -35,8 +35,18 @@ int main(int argc, char* argv[]) {
 		ErrorHandling("listen() error");
 	}
 	szClntAddr =sizeof(clntAddr);
+	hClntSock = accept(hServerSock, (SOCKADDR*)&clntAddr, &szClntAddr);
+	if (hClntSock == INVALID_SOCKET) {
+		ErrorHandling("accept() error");
+	}
+
+	send(hClntSock, message, sizeof(message), 0);
+	closesocket(hClntSock);
+	closesocket(hServerSock);
+	WSACleanup();
 
 	return 0;
+
 }
 
 void ErrorHandling(const char* message) {
