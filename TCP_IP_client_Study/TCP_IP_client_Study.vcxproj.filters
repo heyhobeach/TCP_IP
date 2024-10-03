@@ -18,5 +18,8 @@
     <ClCompile Include="..\TCP_IP_Study\hello_client_win.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="new_hello_client_win.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

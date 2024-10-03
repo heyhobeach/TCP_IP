@@ -23,11 +23,13 @@ int main(int argc, char* argv[]) {
 		ErrorHandling("socket() error");
 	}
 	memset(&servAddr, 0, sizeof(servAddr));
+	cout << argv[1] << endl;
 	servAddr.sin_family = AF_INET;
-	servAddr.sin_addr.S_un.S_addr = htonl(INADDR_ANY);//S_un.s_addr = s_addr
+	servAddr.sin_addr.s_addr = htonl(INADDR_ANY);//S_un.s_addr = s_addr
 	servAddr.sin_port = htons(atoi(argv[1]));
 
-	if (bind(hServerSock, reinterpret_cast<sockaddr*>(&servAddr), sizeof(servAddr) == SOCKET_ERROR) ){
+	//if (bind(hServerSock, reinterpret_cast<sockaddr*>(&servAddr), sizeof(servAddr) == SOCKET_ERROR) ){
+	if (bind(hServerSock, (SOCKADDR*)(&servAddr), sizeof(servAddr)) == SOCKET_ERROR) {
 		ErrorHandling("bind() error");
 	}
 
