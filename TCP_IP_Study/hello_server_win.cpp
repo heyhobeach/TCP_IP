@@ -9,6 +9,8 @@ int main(int argc, char* argv[]) {
 	SOCKET hServerSock, hClntSock;
 	SOCKADDR_IN servAddr, clntAddr;
 
+	int idx = 0, read_len = 0;
+
 	int szClntAddr;
 	char message[] = "Hello World!";
 	if (argc != 2) {
@@ -40,6 +42,10 @@ int main(int argc, char* argv[]) {
 	hClntSock = accept(hServerSock, (SOCKADDR*)&clntAddr, &szClntAddr);
 	if (hClntSock == INVALID_SOCKET) {
 		ErrorHandling("accept() error");
+	}
+
+	for (int i = 0; i < sizeof(message); i++) {
+		//send(hClntSock, &message[i], sizeof(char), 0);
 	}
 
 	send(hClntSock, message, sizeof(message), 0);
