@@ -18,5 +18,8 @@
     <ClCompile Include="hello_server_win.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="echo_server_win.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
